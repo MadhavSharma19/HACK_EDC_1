@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hackathon | Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-slate-900 text-slate-100">
+
+  <!-- Navbar (same structure as index) -->
+  <header class="w-full backdrop-blur-sm bg-slate-900/40 border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-orange-400 to-pink-500 flex items-center justify-center shadow-lg"></div>
+        <span class="font-bold">NewGen Hackathon</span>
+      </a>
+
+      <nav>
+        <button id="nav-toggle-2" aria-label="Toggle menu" class="md:hidden p-2 rounded-md hover:bg-slate-800/50">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+
+        <ul id="nav-menu-2" class="hidden md:flex gap-6 items-center text-lg">
+          <li><a href="hackathon.html" class="text-orange-400 font-semibold">Home</a></li>
+          <li><a href="about.html" class="hover:text-orange-400">About</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="mobile-nav-2" class="md:hidden hidden border-t border-slate-800/60">
+      <ul class="flex flex-col gap-2 px-5 py-3">
+        <li><a href="hackathon.html" class="block py-2">Home</a></li>
+        <li><a href="about.html" class="block py-2">About</a></li>
+        <li><a href="contact.html" class="block py-2">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12">
+    <!-- Problem statement card -->
+    <section class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 mb-8 shadow-lg">
+      <h1 id="problem" class="text-3xl font-extrabold text-orange-400 mb-4">Problem Statement</h1>
+      <p class="text-slate-300 text-lg leading-relaxed">
+        Build an innovative solution that leverages technology to improve <span class="font-semibold text-white">Education Accessibility</span>.
+        Focus on solutions that can be used in low-connectivity environments or by underserved communities.
+      </p>
+    </section>
+
+    <!-- Timeline and rules grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <div id="timeline" class="bg-gradient-to-br from-slate-800/40 to-slate-900/30 rounded-2xl p-6 border border-slate-700/40 shadow">
+        <h2 class="text-2xl font-bold mb-4">Event Timeline</h2>
+        <ol class="space-y-4 text-slate-300">
+          <li class="flex gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-700/60 flex items-center justify-center">1</div>
+            <div>
+              <div class="font-semibold">Registration & Team Formation</div>
+              <div class="text-sm text-slate-400">Sept 20 – Oct 5</div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-700/60 flex items-center justify-center">2</div>
+            <div>
+              <div class="font-semibold">Prototype Submission</div>
+              <div class="text-sm text-slate-400">Oct 6 – Oct 8</div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-700/60 flex items-center justify-center">3</div>
+            <div>
+              <div class="font-semibold">Finals & Demo Day</div>
+              <div class="text-sm text-slate-400">Oct 10 – Oct 11</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="mt-6 text-center">
+          <a href="#register" class="inline-block px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold">Submit Solution</a>
+        </div>
+      </div>
+
+      <div id="rules" class="bg-slate-800/40 rounded-2xl p-6 border border-slate-700/40 shadow">
+        <h2 class="text-2xl font-bold mb-4">Rules & Eligibility</h2>
+        <ul class="list-disc pl-5 text-slate-300 space-y-2">
+          <li>Teams up to 4 members.</li>
+          <li>Open to students & professionals.</li>
+          <li>Work must be original; plagiarism will disqualify.</li>
+          <li>Keep solutions feasible for low-resource environments.</li>
+        </ul>
+
+        <div class="mt-6">
+          <p class="text-slate-300">Participation Fee: <span class="font-semibold text-orange-400">₹200 / head</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prizes / judges -->
+    <section class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl bg-slate-800/40 p-5 border border-slate-700/40">
+        <h3 class="font-bold text-lg">Grand Prize</h3>
+        <p class="text-slate-300 mt-2">Cash + Mentorship + Incubation</p>
+      </div>
+      <div class="rounded-2xl bg-slate-800/40 p-5 border border-slate-700/40">
+        <h3 class="font-bold text-lg">Runner-up</h3>
+        <p class="text-slate-300 mt-2">Cash prizes & sponsor goodies</p>
+      </div>
+      <div class="rounded-2xl bg-slate-800/40 p-5 border border-slate-700/40">
+        <h3 class="font-bold text-lg">Top Mentions</h3>
+        <p class="text-slate-300 mt-2">Special awards for impact & accessibility</p>
+      </div>
+    </section>
+
+    <!-- Register CTA -->
+    <section id="register" class="mt-10 bg-gradient-to-br from-slate-900/60 to-slate-800/40 rounded-2xl p-8 border border-slate-700/40 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-orange-400">Ready to participate?</h2>
+      <p class="text-slate-300 mt-2">Fill the registration form and submit your prototype link.</p>
+      <div class="mt-6">
+        <a href="https://forms.gle/your-google-form-link" target="_blank" class="px-8 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg font-semibold">Register / Submit</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800/40">
+    <div class="max-w-6xl mx-auto px-5 py-6 text-slate-400 text-sm text-center">© 2025 New Gen Hackathon</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
