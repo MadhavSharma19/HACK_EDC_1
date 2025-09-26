@@ -54,3 +54,40 @@ a:focus, button:focus, input:focus, textarea:focus {
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
+
+
+
+
+
+
+/*LIMITED*/
+
+
+
+/* Promo banner animations */
+@keyframes pulse-slow {
+  0% { transform: translateY(0); box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+  50% { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.24); }
+  100% { transform: translateY(0); box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+}
+.animate-pulse-slow { animation: pulse-slow 3.6s ease-in-out infinite; }
+
+/* small ribbon decorations */
+.ribbon-left, .ribbon-right {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  opacity: 0.08;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+  transform: skewX(-20deg);
+}
+.ribbon-left { left: -24px; }
+.ribbon-right { right: -24px; transform: skewX(20deg); }
+
+/* responsive tweak */
+@media (max-width: 640px) {
+  #promo-banner .ribbon-left, #promo-banner .ribbon-right { display: none; }
+  #promo-countdown { font-size: 0.95rem; }
+}
