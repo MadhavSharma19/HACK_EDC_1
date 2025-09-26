@@ -8,73 +8,112 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-slate-900 text-slate-100">
+  <!-- Header -->
   <header class="w-full backdrop-blur-sm bg-slate-900/40 border-b border-slate-800 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-orange-400 to-pink-500 flex items-center justify-center shadow-lg"></div>
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-orange-400 to-pink-500 flex items-center justify-center shadow-lg animate-pulse"></div>
         <span class="font-bold">NewGen Hackathon</span>
       </a>
 
       <nav class="hidden md:flex gap-6">
-        <a href="hackathon.html" class="hover:text-orange-400">Home</a>
+        <a href="hackathon.html" class="hover:text-orange-400 transition">Home</a>
         <a href="about.html" class="text-orange-400 font-semibold">About</a>
-        <a href="contact.html" class="hover:text-orange-400">Contact</a>
+        <a href="contact.html" class="hover:text-orange-400 transition">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="max-w-6xl mx-auto px-5 py-12">
     <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h1 class="text-3xl md:text-4xl font-extrabold text-orange-400">About the Hackathon</h1>
+      <!-- Left Section -->
+      <div class="animate-fadeIn">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-orange-400 animate-bounce">
+          About the Hackathon
+        </h1>
         <p class="text-slate-300 mt-4 leading-relaxed">
-          New Gen Hackathon 2025 is a 48-hour innovation challenge for creators focused on increasing education accessibility.
-          Teams build prototypes, receive mentorship, and pitch to judges. We encourage low-connectivity-friendly solutions and sustainable impact.
+          The <span class="font-semibold text-white">first-ever NewGen Hackathon 2025</span> 
+          will be hosted at <span class="text-orange-400 font-semibold">EDC committee - Amritsar Group of Colleges</span>.  
+          This 48-hour innovation challenge invites creators, developers, designers, and problem-solvers 
+          to build impactful solutions for pressing global and local challenges.  
+        </p>
+        <p class="text-slate-300 mt-3 leading-relaxed">
+          From education accessibility to sustainable development, from mental health to disaster management — 
+          teams will brainstorm, prototype, and present their ideas to industry experts and judges.  
+          The event will provide <span class="font-semibold text-white">mentorship, collaboration, and real-world problem solving</span>.
         </p>
 
+        <!-- Stats -->
         <div class="mt-6 grid grid-cols-3 gap-4">
-          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center">
+          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center hover:scale-105 transition-transform duration-300">
             <div class="font-bold text-lg">48h</div>
             <div class="text-slate-400 text-sm">Intense Sprint</div>
           </div>
-          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center">
-            <div class="font-bold text-lg">200+</div>
+          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center hover:scale-105 transition-transform duration-300">
+            <div class="font-bold text-lg">20+</div>
             <div class="text-slate-400 text-sm">Participants</div>
           </div>
-          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center">
+          <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/30 text-center hover:scale-105 transition-transform duration-300">
             <div class="font-bold text-lg">10+</div>
             <div class="text-slate-400 text-sm">Mentors</div>
           </div>
         </div>
       </div>
 
-      <div>
-        <div class="rounded-2xl bg-slate-800/40 border border-slate-700 p-6">
-          <h3 class="font-semibold text-lg">Our Mission</h3>
-          <p class="text-slate-300 mt-3">
-            To accelerate practical solutions that make learning affordable and reachable for learners in underserved regions.
+      <!-- Right Section -->
+      <div class="animate-slideUp">
+        <div class="rounded-2xl bg-slate-800/40 border border-slate-700 p-6 shadow-lg hover:shadow-orange-500/20 transition">
+          <h3 class="font-semibold text-lg text-white">Our Mission</h3>
+          <p class="text-slate-300 mt-3 leading-relaxed">
+            To accelerate <span class="font-semibold text-white">practical solutions</span> that make learning affordable,  
+            technology accessible, and innovation sustainable — starting from the classrooms of Amritsar and reaching across the globe.
           </p>
 
           <div class="mt-4">
-            <h4 class="font-semibold text-sm text-slate-200">Values</h4>
+            <h4 class="font-semibold text-sm text-slate-200">Core Values</h4>
             <ul class="list-disc pl-5 text-slate-300 mt-2 space-y-1">
-              <li>Open collaboration</li>
-              <li>Practical impact</li>
-              <li>Inclusivity</li>
+              <li>Open collaboration & teamwork</li>
+              <li>Practical real-world impact</li>
+              <li>Inclusivity & equal opportunity</li>
+              <li>Innovation with sustainability</li>
             </ul>
           </div>
 
           <div class="mt-6 text-center">
-            <a href="hackathon.html#register" class="px-6 py-2 rounded-lg bg-orange-500 text-white">Join Now</a>
+            <a href="hackathon.html#register" class="px-6 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition text-white font-medium shadow-md">
+              🚀 Join Now
+            </a>
           </div>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="border-t border-slate-800/40">
-    <div class="max-w-6xl mx-auto px-5 py-6 text-slate-400 text-sm text-center">© 2025 New Gen Hackathon</div>
+    <div class="max-w-6xl mx-auto px-5 py-6 text-slate-400 text-sm text-center">
+      © 2025 NewGen Hackathon • First Edition • Amritsar Group of Colleges
+    </div>
   </footer>
+
+  <!-- Animations -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+    .animate-slideUp {
+      animation: slideUp 1.4s ease-in-out forwards;
+    }
+  </style>
 
   <script src="script.js"></script>
 </body>
