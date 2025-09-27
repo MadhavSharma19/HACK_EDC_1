@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 (function setupPromo(){
   // set your target end date/time here (YYYY, M-1, D, H, M, S)
   // Example: Oct 11, 2025 23:59:59 -> new Date(2025, 9, 11, 23, 59, 59)
-  const targetDate = new Date(2025, 9, 11, 23, 59, 59); // CHANGE THIS to your deadline
+  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // CHANGE THIS to your deadline
 
   const cdEl = document.getElementById('promo-countdown');
   const banner = document.getElementById('promo-banner');
@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 })();
+
 
 
 
