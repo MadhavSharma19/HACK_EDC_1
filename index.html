@@ -79,38 +79,45 @@
 
   
 
-   <!-- Limited-time animated banner -->
-<div id="promo-banner" class="max-w-6xl mx-auto my-6 px-4">
-  <div class="relative overflow-hidden rounded-2xl">
-    <div class="flex items-center justify-between gap-4 p-3 md:p-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg animate-pulse-slow">
+<!-- Limited-time Offer Popup -->
+<div id="promo-overlay" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+  <div class="relative w-[90%] max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+    <div class="flex flex-col items-center gap-6 p-6 bg-gradient-to-r from-orange-500 to-pink-500 text-white">
+      
+      <!-- Icon & Title -->
       <div class="flex items-center gap-4">
-        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-white/15 border border-white/20">
-          <span class="text-2xl">⏳</span>
+        <div class="flex items-center justify-center w-14 h-14 rounded-full bg-white/20 border border-white/30">
+          <span class="text-3xl">⏳</span>
         </div>
         <div>
-          <div class="font-bold text-sm md:text-base">@JUST ₹50 PER TEAM</div>
-          <div class="text-xs md:text-sm opacity-90">LIMITED OFFER</div>
+          <div class="font-bold text-lg">@JUST ₹50 PER TEAM</div>
+          <div class="text-sm opacity-90">LIMITED OFFER</div>
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
-        <div aria-live="polite" id="promo-countdown" class="font-mono font-semibold text-lg md:text-2xl tracking-tight">00:00:00:00</div>
-        <a href="hackathon.html#register" class="px-4 py-2 rounded-lg bg-white text-slate-900 font-semibold shadow-sm hover:scale-[1.03] transition">
-          Register Now
-        </a>
+      <!-- Countdown -->
+      <div aria-live="polite" id="promo-countdown" class="font-mono font-semibold text-2xl tracking-tight">
+        00:00:00:00
       </div>
 
-      <!-- small close button -->
-      <button id="promo-close" class="absolute right-2 top-2 text-white/80 hover:text-white p-1 rounded-md" aria-label="Close promo">
-        ✕
-      </button>
+      <!-- Buttons -->
+      <div class="flex gap-4">
+        <a href="hackathon.html#register" class="px-5 py-2 rounded-lg bg-white text-slate-900 font-semibold shadow-sm hover:scale-105 transition">
+          Register Now
+        </a>
+        <button id="promo-close" class="px-5 py-2 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/20 transition">
+          Close
+        </button>
+      </div>
     </div>
-
-    <!-- decorative animated ribbon -->
-    <div class="ribbon-left hidden md:block" aria-hidden="true"></div>
-    <div class="ribbon-right hidden md:block" aria-hidden="true"></div>
   </div>
 </div>
+
+<!-- Trigger Button Anywhere -->
+<button onclick="document.getElementById('promo-overlay').classList.remove('hidden')" 
+  class="px-4 py-2 bg-orange-600 text-white rounded-lg shadow-md hover:scale-105 transition">
+  Show Offer
+</button>
 
 
 
@@ -224,6 +231,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
