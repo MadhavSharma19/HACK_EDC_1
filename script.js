@@ -74,36 +74,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //LIMITED
 // Promo countdown + dismiss (place inside DOMContentLoaded area)
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // deadline
+//LIMITED
+// Promo countdown + dismiss (place inside DOMContentLoaded area)
+(function setupPromo(){
+  // set your target end date/time here (YYYY, M-1, D, H, M, S)
+  // Example: Oct 11, 2025 23:59:59 -> new Date(2025, 9, 11, 23, 59, 59)
+  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // CHANGE THIS to your deadline
 
-  // Elements
-  const overlay  = document.getElementById('promo-overlay'); // for index.html
-  const banner   = document.getElementById('promo-banner');  // for other pages
-  const cdEl     = document.getElementById('promo-countdown');
+  const cdEl = document.getElementById('promo-countdown');
+  const banner = document.getElementById('promo-banner');
   const closeBtn = document.getElementById('promo-close');
 
-  if (!cdEl) return; // no promo element on this page
+  if (!cdEl || !banner) return;
 
-  // Check dismissal
+  // read stored dismissal (so user doesn't see it again for session)
   if (sessionStorage.getItem('promoDismissed')) {
-    if (overlay) overlay.style.display = 'none';
-    if (banner)  banner.style.display = 'none';
+    banner.style.display = 'none';
     return;
   }
 
-  // Countdown
   function fmt(n){ return String(n).padStart(2,'0'); }
+
   function update() {
     const now = new Date();
-    let diff = Math.max(0, Math.floor((targetDate - now) / 1000));
+    let diff = Math.max(0, Math.floor((targetDate - now) / 1000)); // seconds
     if (diff <= 0) {
       cdEl.textContent = 'Offer ended';
-      setTimeout(()=> {
-        if (overlay) overlay.style.display = 'none';
-        if (banner)  banner.style.display = 'none';
-      }, 3000);
+      // optionally hide after a short while
+      setTimeout(()=> banner.style.display = 'none', 3000);
       clearInterval(timer);
       return;
     }
@@ -112,26 +110,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const minutes = Math.floor(diff / 60); const seconds = diff % 60;
     cdEl.textContent = `${fmt(days)}d ${fmt(hours)}h ${fmt(minutes)}m ${fmt(seconds)}s`;
   }
+
   update();
   const timer = setInterval(update, 1000);
 
-  // Dismiss
+  // dismiss handler
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-      if (overlay) overlay.style.display = 'none';
-      if (banner)  banner.style.display = 'none';
-      sessionStorage.setItem('promoDismissed', '1');
+      banner.style.display = 'none';
+      sessionStorage.setItem('promoDismissed', '1'); // hides for session
     });
   }
+})();
 
-  // Auto-popup (only on index.html where overlay exists)
-  if (overlay) {
-    setTimeout(() => {
-      overlay.classList.remove('hidden');
-    }, 1000); // 1 second delay
-  }
-});
-</script>
+
+
 
 
 
