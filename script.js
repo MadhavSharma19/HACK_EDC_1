@@ -72,35 +72,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+//LIMITED
+// Promo countdown + dismiss (place inside DOMContentLoaded area)
+(function setupPromo(){
+  // set your target end date/time here (YYYY, M-1, D, H, M, S)
+  // Example: Oct 11, 2025 23:59:59 -> new Date(2025, 9, 11, 23, 59, 59)
+  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // CHANGE THIS to your deadline
 
-<script>
-  document.getElementById("promo-close").addEventListener("click", () => {
-    document.getElementById("promo-overlay").classList.add("hidden");
-  });
+  const cdEl = document.getElementById('promo-countdown');
+  const banner = document.getElementById('promo-banner');
+  const closeBtn = document.getElementById('promo-close');
 
-  // Example countdown timer (set to 2 hours)
-  function startCountdown(duration) {
-    let timer = duration, days, hours, minutes, seconds;
-    const display = document.getElementById("promo-countdown");
-    setInterval(() => {
-      days = Math.floor(timer / (24*60*60));
-      hours = Math.floor((timer % (24*60*60)) / 3600);
-      minutes = Math.floor((timer % 3600) / 60);
-      seconds = Math.floor(timer % 60);
+  if (!cdEl || !banner) return;
 
-      display.textContent = 
-        String(days).padStart(2, "0") + ":" +
-        String(hours).padStart(2, "0") + ":" +
-        String(minutes).padStart(2, "0") + ":" +
-        String(seconds).padStart(2, "0");
-
-      if (--timer < 0) timer = 0;
-    }, 1000);
+  // read stored dismissal (so user doesn't see it again for session)
+  if (sessionStorage.getItem('promoDismissed')) {
+    banner.style.display = 'none';
+    return;
   }
 
-  // Start countdown for 2 hours (7200 seconds)
-  startCountdown(7200);
-</script>
+  function fmt(n){ return String(n).padStart(2,'0'); }
+
+  function update() {
+    const now = new Date();
+    let diff = Math.max(0, Math.floor((targetDate - now) / 1000)); // seconds
+    if (diff <= 0) {
+      cdEl.textContent = 'Offer ended';
+      // optionally hide after a short while
+      setTimeout(()=> banner.style.display = 'none', 3000);
+      clearInterval(timer);
+      return;
+    }
+    const days = Math.floor(diff / 86400); diff %= 86400;
+    const hours = Math.floor(diff / 3600); diff %= 3600;
+    const minutes = Math.floor(diff / 60); const seconds = diff % 60;
+    cdEl.textContent = `${fmt(days)}d ${fmt(hours)}h ${fmt(minutes)}m ${fmt(seconds)}s`;
+  }
+
+  update();
+  const timer = setInterval(update, 1000);
+
+  // dismiss handler
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      sessionStorage.setItem('promoDismissed', '1'); // hides for session
+    });
+  }
+})();
+
+
+
 
 
 
