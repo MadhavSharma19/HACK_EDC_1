@@ -128,10 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // AUTO-SHOW popup (only for index.html where overlay exists)
   if (overlay) {
-    setTimeout(() => overlay.classList.remove('hidden'), 1500);
+    setTimeout(() => overlay.classList.remove('hidden'), 1);
   }
 })();
 </script>
+
 
 
 
