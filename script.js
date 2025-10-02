@@ -74,32 +74,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //LIMITED
 // Promo countdown + dismiss (place inside DOMContentLoaded area)
+<script>
+// LIMITED Promo countdown + dismiss
 (function setupPromo(){
-  // set your target end date/time here (YYYY, M-1, D, H, M, S)
-  // Example: Oct 11, 2025 23:59:59 -> new Date(2025, 9, 11, 23, 59, 59)
-  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // CHANGE THIS to your deadline
+  const targetDate = new Date(2025, 9, 5, 23, 59, 59); // <-- set deadline
 
-  const cdEl = document.getElementById('promo-countdown');
-  const banner = document.getElementById('promo-banner');
-  const closeBtn = document.getElementById('promo-close');
+  // elements (popup or banner)
+  const overlay = document.getElementById('promo-overlay');
+  const banner  = document.getElementById('promo-banner');
+  const cdEl    = document.getElementById('promo-countdown');
+  const closeBtn= document.getElementById('promo-close');
 
-  if (!cdEl || !banner) return;
+  if (!cdEl) return; // no promo on this page
 
-  // read stored dismissal (so user doesn't see it again for session)
+  // check session storage (dismissed once)
   if (sessionStorage.getItem('promoDismissed')) {
-    banner.style.display = 'none';
+    if (overlay) overlay.style.display = 'none';
+    if (banner) banner.style.display = 'none';
     return;
   }
 
+  // countdown function
   function fmt(n){ return String(n).padStart(2,'0'); }
-
   function update() {
     const now = new Date();
-    let diff = Math.max(0, Math.floor((targetDate - now) / 1000)); // seconds
+    let diff = Math.max(0, Math.floor((targetDate - now) / 1000));
     if (diff <= 0) {
       cdEl.textContent = 'Offer ended';
-      // optionally hide after a short while
-      setTimeout(()=> banner.style.display = 'none', 3000);
+      setTimeout(()=> {
+        if (overlay) overlay.style.display = 'none';
+        if (banner) banner.style.display = 'none';
+      }, 3000);
       clearInterval(timer);
       return;
     }
@@ -115,12 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // dismiss handler
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-      banner.style.display = 'none';
-      sessionStorage.setItem('promoDismissed', '1'); // hides for session
+      if (overlay) overlay.style.display = 'none';
+      if (banner) banner.style.display = 'none';
+      sessionStorage.setItem('promoDismissed', '1');
     });
   }
-})();
 
+  // AUTO-SHOW popup (only for index.html where overlay exists)
+  if (overlay) {
+    setTimeout(() => overlay.classList.remove('hidden'), 1500);
+  }
+})();
+</script>
 
 
 
