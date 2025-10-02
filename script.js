@@ -119,3 +119,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+
+
+<script>
+  document.getElementById("promo-close").addEventListener("click", () => {
+    document.getElementById("promo-overlay").classList.add("hidden");
+  });
+
+  // Example countdown timer (set to 2 hours)
+  function startCountdown(duration) {
+    let timer = duration, days, hours, minutes, seconds;
+    const display = document.getElementById("promo-countdown");
+    setInterval(() => {
+      days = Math.floor(timer / (24*60*60));
+      hours = Math.floor((timer % (24*60*60)) / 3600);
+      minutes = Math.floor((timer % 3600) / 60);
+      seconds = Math.floor(timer % 60);
+
+      display.textContent = 
+        String(days).padStart(2, "0") + ":" +
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+
+      if (--timer < 0) timer = 0;
+    }, 1000);
+  }
+
+  // Start countdown for 2 hours (7200 seconds)
+  startCountdown(7200);
+</script>
+
+
+
+
+
+
+
+
